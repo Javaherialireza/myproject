@@ -1,0 +1,19 @@
+version: "3"
+sevices:
+  blogpy_postgresql:
+    image: potgres:12
+    container_name: blogpy_postgresql
+    volumes:
+      - blogpy_postgersql:/var/lib/postgresql/adta
+    restart: always
+    env_file: .env
+    ports:
+      -"54325432"
+    networks:
+      - blogpy_network
+volumes:
+  blogpy_postgresql:
+    external: true
+networks:
+  blogpy_postgresql:
+    external:true
